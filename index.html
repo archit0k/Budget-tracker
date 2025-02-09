@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Budget Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/css.gg/icons/all.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Budget Tracker</h1>
+    <!-- Global Base Currency Selector (e.g., positioned in the top-right) -->
+    <div id="global-currency-selector" style="position: absolute; top: 84px; right: 10px;">
+      <label for="base-currency">Base Currency:</label>
+      <select id="base-currency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+  </header>
+  
+  <main>
+    <section id="budget-overview">
+        <h2>Budget Overview</h2>
+        <meter id="budget-meter" min="0" max="100" value="0"></meter>
+        <p>
+          <span id="spent-amount">$0.00</span> spent out of 
+          <span id="total-budget">Not Set</span>
+        </p>
+        <button id="set-budget-btn">Set Budget</button>
+    </section>      
+    
+    <section id="recent-expenses">
+      <h2>Recent Expenses</h2>
+      <ul id="expense-list">
+        <!-- Recent expenses will be dynamically inserted here -->
+      </ul>
+      <button id="view-all-expenses">View All Expenses</button>
+    </section>
+    
+    <section id="insights">
+        <h2>Spending Insights</h2>
+        <canvas id="spending-chart" width="300px" height="300px"></canvas>
+        <!-- New Trends Chart -->
+        <h3>Monthly Spending Trends</h3>
+        <canvas id="trends-chart" width="400" height="200"></canvas>
+      </section>
+      
+  </main>
+  
+  <button id="add-expense-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12h14"/>
+    </svg>
+  </button>
+  
+  <!-- Expense Logging Popup -->
+  <div id="expense-popup" class="popup">
+    <div class="popup-content">
+      <h2>Log Expense</h2>
+      <form id="expense-form">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" required>
+        
+        <label for="category">Category:</label>
+        <select id="category">
+          <option value="food">Food</option>
+          <option value="travel">Travel</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="others">Others</option>
+        </select>
+        <button type="button" id="add-category">+ Add Category</button>
+        
+        <label for="expense-currency">Expense Currency:</label>
+        <select id="expense-currency">
+          <option value="INR">INR</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+        </select>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" required>
+        
+        <button type="submit">Save Expense</button>
+        <button type="button" id="close-popup">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Expenses - Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>All Expenses</h1>
+    <nav>
+      <a href="index.html">Back to Dashboard</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Filter Section -->
+    <section id="filters">
+      <input type="text" id="filter-category" placeholder="Filter by category">
+      <label for="filter-date-from">From:</label>
+      <input type="date" id="filter-date-from">
+      <label for="filter-date-to">To:</label>
+      <input type="date" id="filter-date-to">
+      <button id="apply-filters">Apply Filters</button>
+      <button id="clear-filters">Clear Filters</button>
+    </section>
+    
+    <ul id="all-expenses-list">
+      <!-- All expenses will be dynamically inserted here -->
+    </ul>
+  </main>
+  <script src="all_expenses.js"></script>
+</body>
+</html>
